@@ -1,22 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>FB OAuth Test</title>
+  <title>FB OAuth Redirect</title>
 </head>
 <body>
-  <h1>FB OAuth Test</h1>
-  <a id="fbLogin" href="#">Login with Facebook</a>
+  <h1>Facebook OAuth Redirect Successful!</h1>
+  <p id="token"></p>
 
   <script>
-    const APP_ID = '1426598535054481';
-    const REDIRECT_URI = 'https://ckvgemmy.github.io/fb-lead-test/';
-
-    document.getElementById('fbLogin').href =
-      `https://www.facebook.com/v19.0/dialog/oauth?` +
-      `client_id=${APP_ID}` +
-      `&redirect_uri=${encodeURIComponent(REDIRECT_URI)}` +
-      `&scope=pages_show_list,leads_retrieval,pages_read_engagement,pages_manage_metadata` +
-      `&response_type=token`;
+    const params = new URLSearchParams(window.location.hash.substring(1));
+    document.getElementById("token").innerText = "Access Token: " + params.get("access_token");
   </script>
 </body>
 </html>
