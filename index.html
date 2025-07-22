@@ -1,7 +1,22 @@
+<!DOCTYPE html>
 <html>
-  <head><title>Test Page</title></head>
-  <body>
-    <h1>This is my Facebook Test Page</h1>
-    <p>Privacy policy here.</p>
-  </body>
+<head>
+  <title>FB OAuth Test</title>
+</head>
+<body>
+  <h1>FB OAuth Test</h1>
+  <a id="fbLogin" href="#">Login with Facebook</a>
+
+  <script>
+    const APP_ID = '10161576285346524';
+    const REDIRECT_URI = 'https://ckvgemmy.github.io/fb-lead-test/';
+
+    document.getElementById('fbLogin').href =
+      `https://www.facebook.com/v19.0/dialog/oauth?` +
+      `client_id=${APP_ID}` +
+      `&redirect_uri=${encodeURIComponent(REDIRECT_URI)}` +
+      `&scope=pages_show_list,leads_retrieval,pages_read_engagement,pages_manage_metadata` +
+      `&response_type=token`;
+  </script>
+</body>
 </html>
